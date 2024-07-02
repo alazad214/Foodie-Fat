@@ -11,16 +11,13 @@ class Splash extends StatefulWidget {
 }
 
 class _SplashState extends State<Splash> {
-
   @override
   void initState() {
-    Future.delayed(const Duration(seconds: 3), (){
-      Get.offAll(()=> const Home());
+    Future.delayed(const Duration(seconds: 3), () {
+      Get.offAll(() => const Home());
     });
     super.initState();
   }
-
-
 
   @override
   Widget build(BuildContext context) {
