@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:foodie_fat/widgets/custom_font.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});
@@ -11,16 +12,14 @@ class Home extends StatelessWidget {
           margin:
               const EdgeInsets.only(left: 20, right: 20, top: 20, bottom: 20),
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const Text(
-                    "Hello Azad,",
-                    style: TextStyle(
-                        color: Colors.black,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 22),
+                  CustomFont(
+                    title: "Hello Azad,",
                   ),
                   CircleAvatar(
                     child: IconButton(
@@ -31,11 +30,27 @@ class Home extends StatelessWidget {
                         )),
                   )
                 ],
-              )
+              ),
+              cusSizebox(15.0),
+              CustomFont(
+                title: "palatable Food",
+              ),
+              CustomFont(
+                title: "Discover and enjoy great food..",
+                size: 15.0,
+                color: Colors.black45,
+                fontwidget: FontWeight.w500,
+              ),
             ],
           ),
         ),
       ),
     );
   }
+}
+
+Widget cusSizebox(height) {
+  return SizedBox(
+    height: height,
+  );
 }
