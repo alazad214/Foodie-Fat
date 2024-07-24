@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:foodie_fat/ui/home.dart';
 import 'package:get/get.dart';
-import 'package:lottie/lottie.dart';
+import 'home.dart';
 
 class Splash extends StatefulWidget {
   const Splash({super.key});
@@ -14,7 +13,7 @@ class _SplashState extends State<Splash> {
   @override
   void initState() {
     Future.delayed(const Duration(seconds: 3), () {
-      Get.offAll(() => const Home());
+      Get.offAll(() => Home());
     });
     super.initState();
   }
