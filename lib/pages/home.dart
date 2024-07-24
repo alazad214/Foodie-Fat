@@ -1,18 +1,21 @@
 import 'package:flutter/material.dart';
-
+import 'package:foodie_fat/widgets/custom_drawer.dart';
 import '../widgets/item_widget.dart';
 import '../widgets/search_dialog.dart';
 
 class Home extends StatelessWidget {
   Home({super.key});
+
   final searchdialog = SearchDialog();
   final TextEditingController searchcontroller = TextEditingController();
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
       length: 4,
       child: Scaffold(
+        key: _scaffoldKey,
         backgroundColor: const Color(0xFF232227),
         body: SafeArea(
             child: Padding(
@@ -24,7 +27,9 @@ class Home extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   IconButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        _scaffoldKey.currentState!.openDrawer();
+                      },
                       icon: const Icon(
                         Icons.sort,
                         color: Colors.white,
@@ -97,6 +102,7 @@ class Home extends StatelessWidget {
             ],
           ),
         )),
+        drawer: const CustomDrawer(),
       ),
     );
   }

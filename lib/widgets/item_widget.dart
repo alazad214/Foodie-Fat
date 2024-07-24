@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:foodie_fat/pages/details_page.dart';
+import 'package:foodie_fat/pages/splash.dart';
 import 'package:foodie_fat/widgets/custom_text.dart';
+import 'package:get/get.dart';
 
 class ItemWidget extends StatelessWidget {
   const ItemWidget({super.key});
@@ -22,7 +25,9 @@ class ItemWidget extends StatelessWidget {
                   BoxShadow(color: Colors.black, spreadRadius: 1, blurRadius: 8)
                 ]),
             child: InkWell(
-              onTap: () {},
+              onTap: () {
+                Get.to(() => const DetailsPage());
+              },
               child: Padding(
                 padding:
                     const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
@@ -37,20 +42,26 @@ class ItemWidget extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        const Text(
-                          "৳ " + "350",
-                          style: TextStyle(
-                            color: Colors.white,
+                        const Flexible(
+                          child: Text(
+                            "৳ " "350",
+                            overflow: TextOverflow.ellipsis,
+                            style: TextStyle(
+                              color: Colors.white,
+                            ),
                           ),
                         ),
                         IconButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              Get.to(() => const Splash());
+                            },
                             icon: const Icon(
-                              Icons.shopping_cart,
+                              Icons.favorite_border,
                               color: Colors.white,
                             ))
                       ],
-                    )
+                    ),
+
                   ],
                 ),
               ),
